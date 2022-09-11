@@ -11,7 +11,7 @@ class Feedback extends Model
 
     public function aspiration()
     {
-        return  $this->hasOne(Aspiration::class);
+        return  $this->belongsTo(Aspiration::class);
     }
 
     public function author()
