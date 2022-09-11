@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Feedback extends Model
 {
     use HasFactory;
+
+    public function aspiration()
+    {
+        return  $this->hasOne(Aspiration::class);
+    }
+
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'admin_id');
+    }
 }
