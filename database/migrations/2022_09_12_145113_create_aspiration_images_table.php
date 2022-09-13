@@ -13,14 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('aspirations', function (Blueprint $table) {
+        Schema::create('aspiration_images', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('senders_id')->references('id')->on('senders');
-            $table->foreignId('categories_id')->references('id')->on('categories');
-            $table->integer('status')->default(0);
-            $table->string('title');
-            $table->text('aspiration');
-            $table->text('location');
+            $table->foreignId('aspirations_id')->references('id')->on('aspirations');
+            $table->string('image_file');
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('aspirations');
+        Schema::dropIfExists('aspiration_images');
     }
 };
