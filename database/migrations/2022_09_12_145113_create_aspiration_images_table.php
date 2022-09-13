@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('aspiration_images', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('username',8)->unique();
-            $table->string('password');
-            $table->rememberToken();
+            $table->foreignId('aspirations_id')->references('id')->on('aspirations');
+            $table->string('image_file');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('aspiration_images');
     }
 };
